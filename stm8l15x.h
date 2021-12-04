@@ -31,7 +31,7 @@
    application
   */
 /* #define STM8L15X_LD */     /*!< STM8L15X_LD: STM8L15x Low density devices */
-#define STM8L15X_MD
+#define STM8L15X_MD           // Configure library for medium density STM8L152C6 board
 /* #define STM8L15X_MDP */    /*!< STM8L15X_MDP: STM8L15x Medium density plus devices */
 /* #define STM8L15X_HD */    /*!< STM8L15X_HD: STM8L15x/16x High density devices */
 
@@ -62,7 +62,7 @@
 /*                   Library configuration section                            */
 /******************************************************************************/
 /* Check the used compiler */
-#define __CSMC__
+#define __CSMC__             // Emulate Cosmic compiler
 
 #if defined(__CSMC__)
  #define _COSMIC_
@@ -2892,7 +2892,7 @@ AES_TypeDef;
  #define wfe() {_asm("wfe\n");} /*!<Wait for event */
  #define halt() {_asm("halt\n");} /*!<Halt */
 #else /*_IAR*/
- //#include <intrinsics.h>
+ //#include <intrinsics.h>                            /* disable unused library */
  #define enableInterrupts()    __enable_interrupt()   /* enable interrupts */
  #define disableInterrupts()   __disable_interrupt()  /* disable interrupts */
  #define rim()                 __enable_interrupt()   /* enable interrupts */
